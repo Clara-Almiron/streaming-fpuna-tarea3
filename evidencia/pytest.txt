@@ -1,0 +1,49 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-8.4.2, pluggy-1.6.0 -- /home/clara/workspaces/Maestria/Streaming_de_datos/tareas/tarea3-estado-idempotencia-beam/repo/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/clara/workspaces/Maestria/Streaming_de_datos/tareas/tarea3-estado-idempotencia-beam/repo
+configfile: pyproject.toml
+plugins: anyio-4.14.2
+collecting ... collected 39 items
+
+tests/test_assignment.py::test_parse_utc_returns_timezone_aware_datetime PASSED [  2%]
+tests/test_assignment.py::test_assign_fixed_window_uses_event_time PASSED [  5%]
+tests/test_assignment.py::test_duplicate_does_not_change_total PASSED    [  7%]
+tests/test_assignment.py::test_deduplication_is_isolated_by_merchant PASSED [ 10%]
+tests/test_assignment.py::test_stateful_dofn_keeps_keys_isolated PASSED  [ 12%]
+tests/test_assignment.py::test_out_of_order_event_uses_its_event_time_window PASSED [ 15%]
+tests/test_assignment.py::test_late_event_within_tolerance_is_a_revision PASSED [ 17%]
+tests/test_assignment.py::test_event_beyond_lateness_is_audited PASSED   [ 20%]
+tests/test_assignment.py::test_windowed_pipeline_produces_totals PASSED  [ 23%]
+tests/test_assignment.py::test_trigger_policy_has_lateness_and_accumulating_panes PASSED [ 25%]
+tests/test_assignment.py::test_retries_converge_to_one_materialized_entity PASSED [ 28%]
+tests/test_assignment.py::test_append_only_sink_materializes_every_attempt PASSED [ 30%]
+tests/test_assignment.py::test_timer_handler_clears_state PASSED         [ 33%]
+tests/test_propias.py::test_parse_utc_rechaza_valores_fuera_de_contrato[2026-07-24T13:00:05] PASSED [ 35%]
+tests/test_propias.py::test_parse_utc_rechaza_valores_fuera_de_contrato[2026-07-24T13:00:05+03:00] PASSED [ 38%]
+tests/test_propias.py::test_parse_utc_rechaza_valores_fuera_de_contrato[2026-07-24T13:00:05+00:00Z] PASSED [ 41%]
+tests/test_propias.py::test_parse_utc_rechaza_valores_fuera_de_contrato[no es una fecha Z] PASSED [ 43%]
+tests/test_propias.py::test_parse_utc_rechaza_valores_fuera_de_contrato[] PASSED [ 46%]
+tests/test_propias.py::test_parse_utc_rechaza_valores_fuera_de_contrato[None] PASSED [ 48%]
+tests/test_propias.py::test_parse_utc_conserva_fracciones_de_segundo PASSED [ 51%]
+tests/test_propias.py::test_borde_derecho_de_la_ventana_es_exclusivo PASSED [ 53%]
+tests/test_propias.py::test_ventana_rechaza_datetime_sin_zona PASSED     [ 56%]
+tests/test_propias.py::test_ventana_alineada_igual_que_fixedwindows_de_beam PASSED [ 58%]
+tests/test_propias.py::test_conteos_de_la_configuracion_por_defecto PASSED [ 61%]
+tests/test_propias.py::test_auditoria_en_orden_de_llegada PASSED         [ 64%]
+tests/test_propias.py::test_sin_deduplicar_el_duplicado_infla_el_total PASSED [ 66%]
+tests/test_propias.py::test_pending_previo_no_bloquea_la_confirmacion PASSED [ 69%]
+tests/test_propias.py::test_reintento_de_un_tardio_no_es_duplicado PASSED [ 71%]
+tests/test_propias.py::test_copia_tardia_de_un_pago_contado_es_duplicado PASSED [ 74%]
+tests/test_propias.py::test_lateness_en_el_limite_exacto_se_acepta PASSED [ 76%]
+tests/test_propias.py::test_pipeline_batch_deduplica_y_coincide_con_el_oraculo_sin_tardios PASSED [ 79%]
+tests/test_propias.py::test_teststream_revision_late_aceptada_y_tardio_descartado PASSED [ 82%]
+tests/test_propias.py::test_timer_sin_lateness_deja_pasar_el_duplicado_tardio PASSED [ 84%]
+tests/test_propias.py::test_politica_de_triggers_early_y_late PASSED     [ 87%]
+tests/test_propias.py::test_cuatro_resultados_dos_intentos PASSED        [ 89%]
+tests/test_propias.py::test_upsert_de_panes_acumulativos_converge_al_ultimo_total PASSED [ 92%]
+tests/test_propias.py::test_clave_idempotente_no_depende_del_total PASSED [ 94%]
+tests/test_propias.py::test_clave_idempotente_rechaza_el_separador PASSED [ 97%]
+tests/test_propias.py::test_reintentos_invalidos PASSED                  [100%]
+
+============================== 39 passed in 3.15s ==============================
